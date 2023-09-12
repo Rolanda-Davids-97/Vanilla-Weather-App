@@ -1,3 +1,24 @@
 body {
   background-image: url("https://images3.alphacoders.com/221/22135.jpg");
 }
+.weather-app {
+  max-width: 900px;
+  margin: 10px auto;
+  padding: 60px;
+}
+h1 {
+  color: #fff0f5;
+  font-size: 40px;
+  text-align: center;
+  font-family: "sofia";
+}
+h2 {
+  color: #fff0f5;
+  font-size: 25px;
+  font-family: "monospace";
+}
+h3 {
+  color: #fff0f5;
+  font-size: 20px;
+  font-family: "Courier New", Courier, monospace;
+}
