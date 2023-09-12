@@ -42,10 +42,30 @@ p {
   color: #fff0f5;
   font-family: "sofia" sans-serif;
   font-size: 20px;
+  padding-top: 30px;
 }
 .row {
   color: #3f1d38;
   font-size: 14px;
   font-weight: 900px;
   font-family: "Times New Roman", Times, serif;
+}
+.weather-temperature {
+  margin-top: 10px;
+  margin-right: 30px;
+}
+.sun-emoji {
+  margin-right: 10px;
+  font-size: 50px;
+  vertical-align: center;
+}
+.temperature {
+  font-size: 40px;
+  font-weight: 20;
+  line-height: 2;
+  text-align: center;
+}
+.units {
+  position: relative;
+  margin-right: 34px;
 }
