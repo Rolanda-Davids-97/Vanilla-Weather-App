@@ -18,13 +18,18 @@ h1 {
 h2 {
   color: #fff0f5;
 
+  padding-top: 10px;
+  margin-right: 90px;
   font-size: 30px;
   font-family: "monospace";
+  text-align: center;
 }
 h3 {
   color: #fff0f5;
   font-size: 25px;
   font-family: "monospace";
+  margin-left: 90px;
+  margin-top: 20px;
 }
 ul {
   margin: 0 0 10px;
@@ -47,13 +52,20 @@ li {
 .weather-temperature img {
   margin-bottom: 30px;
   margin-right: 10px;
-  margin-left: 30px;
+  margin-left: 60px;
   height: 40px;
   width: 40px;
   padding: 0;
 }
 .weather-temperature strong {
-  color: #fff0f5;
+  color: #3f1d38;
   font-size: 50px;
   font-weight: 20px;
+}
+
+.row {
+  color: #3f1d38;
+  font-size: 18px;
+  font-weight: 900px;
+  font-family: "Times New Roman", Times, serif;
 }
