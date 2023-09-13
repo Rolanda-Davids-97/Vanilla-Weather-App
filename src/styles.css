@@ -6,6 +6,9 @@ body {
   margin: 10px auto;
   padding: 60px;
 }
+.weather-app-wrapper {
+  margin: 20px auto;
+}
 h1 {
   color: #fff0f5;
   font-size: 50px;
@@ -25,17 +28,32 @@ h3 {
 }
 ul {
   margin: 0 0 10px;
-  padding: 0;
+  padding: 10px;
+  padding-bottom: 30px;
+  text-align: center;
 }
 
 li {
   text-align: center;
   color: #fff0f5;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 100;
   height: 19px;
   line-height: 1;
   list-style: none;
   margin: auto;
   padding: 0%;
+}
+.weather-temperature img {
+  margin-bottom: 30px;
+  margin-right: 10px;
+  margin-left: 30px;
+  height: 40px;
+  width: 40px;
+  padding: 0;
+}
+.weather-temperature strong {
+  color: #fff0f5;
+  font-size: 50px;
+  font-weight: 20px;
 }
