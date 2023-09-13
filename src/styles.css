@@ -69,3 +69,11 @@ li {
   font-weight: 900px;
   font-family: "Times New Roman", Times, serif;
 }
+.units {
+  position: relative;
+  top: -34px;
+  font-size: 15px;
+}
+.days {
+  color: #916db3;
+}
