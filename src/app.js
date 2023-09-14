@@ -58,17 +58,21 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.condition.description);
 }
-function search(event) {
-  event.preventDafault();
-  let cityInputElement = document.querySelector("#city-input");
-  console.log(cityInputElement);
+function search(city) {
+  let apiKey = "4t804o3f400bde415f63abf53543fcd3";
+
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayTemperature);
 }
 
-let apiKey = "4t804o3f400bde415f63abf53543fcd3";
-let city = "Johannesburg";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+function handleSubmit(event) {
+  event.preventDafault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
 
-axios.get(apiUrl).then(displayTemperature);
+search("Cape Town");
 
 let form = document.querySelector("#search-form");
-form.addEventListener("submit", search);
+form.addEventListener("submit", handleSubmit);
