@@ -15,10 +15,8 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple"
     />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Sofia&effect=fire"
-    />
+
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/styles.css" />
   </head>
   <body>
@@ -53,9 +51,9 @@
               Current location 📍
             </button>
           </div>
-          <h1 class="font-effect-outline">Johannesburg</h1>
+          <h1 class="font-effect-outline" id="city"></h1>
           <h2>13 September Wednesday 18:00</h2>
-          <h3>Clear</h3>
+          <h3 id="description"></h3>
           <div class="row">
             <div class="col-4">
               <div class="clearflex weather-temperature">
@@ -64,7 +62,7 @@
                   alt="moon"
                   class="float-left"
                 />
-                <strong> 18</strong>
+                <strong id="temperature"> </strong>
                 <small class="units"> °C | <a href="#"> °F</a> </small>
               </div>
             </div>
