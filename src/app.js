@@ -1,5 +1,6 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
+
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -57,9 +58,17 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.condition.description);
 }
+function search(event) {
+  event.preventDafault();
+  let cityInputElement = document.querySelector("#city-input");
+  console.log(cityInputElement);
+}
 
 let apiKey = "4t804o3f400bde415f63abf53543fcd3";
 let city = "Johannesburg";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", search);
