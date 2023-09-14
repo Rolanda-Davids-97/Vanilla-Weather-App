@@ -30,6 +30,8 @@ h3 {
   font-family: "monospace";
   margin-left: 90px;
   margin-top: 20px;
+}
+h3 ::first-letter {
   text-transform: capitalize;
 }
 ul {
