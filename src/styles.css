@@ -80,3 +80,10 @@ li {
 .days {
   color: #916db3;
 }
+.weather-temperature.active {
+  color: #3f1d38;
+  cursor: default;
+}
+.weather-temperature.active:hover {
+  text-decoration: none;
+}
