@@ -60,19 +60,15 @@ function displayTemperature(response) {
 }
 function search(city) {
   let apiKey = "4t804o3f400bde415f63abf53543fcd3";
-
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-
   axios.get(apiUrl).then(displayTemperature);
 }
-
 function handleSubmit(event) {
-  event.preventDafault();
+  event.preventDefault();
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
 
-search("Cape Town");
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+search("Cape Town");
