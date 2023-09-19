@@ -72,7 +72,7 @@ li {
   font-weight: 900px;
   font-family: "Times New Roman", Times, serif;
 }
-.units {
+.weather-temperature .units {
   position: relative;
   top: -34px;
   font-size: 15px;
@@ -80,10 +80,10 @@ li {
 .days {
   color: #916db3;
 }
-.weather-temperature.active {
+.active {
   color: #3f1d38;
   cursor: default;
 }
-.weather-temperature.active:hover {
-  text-decoration: none;
+a {
+  text-decoration: double;
 }
