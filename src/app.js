@@ -19,22 +19,8 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-  let months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  let month = months[date.getMonth()];
-  return `${date}${month}${day}${hours}:${minutes}`;
+
+  return `${date}${day}${hours}:${minutes}`;
 }
 
 function displayTemperature(response) {

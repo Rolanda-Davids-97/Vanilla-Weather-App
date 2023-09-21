@@ -1,13 +1,23 @@
 body {
   background-image: url("https://images3.alphacoders.com/221/22135.jpg");
 }
+.form-container {
+  display: flex;
+  justify-content: center;
+  min-height: 50px;
+  align-content: center;
+}
+.form {
+  width: 40%;
+}
+
 .container {
   max-width: 800px;
-  margin: 10px auto;
-  padding: 60px;
+  margin-top: 10px auto;
+  padding-right: 90px;
 }
 .weather-app-wrapper {
-  margin: 20px auto;
+  margin: 10px auto;
 }
 h1 {
   color: #fff0f5;
@@ -62,8 +72,8 @@ li {
 }
 .weather-temperature strong {
   color: #3f1d38;
-  font-size: 50px;
-  font-weight: 20px;
+  font-size: 40px;
+  font-weight: 15px;
 }
 
 .row {
@@ -81,9 +91,10 @@ li {
   color: #916db3;
 }
 .active {
+  text-decoration: none;
   color: #3f1d38;
   cursor: default;
 }
-a {
-  text-decoration: double;
+a.active:hover {
+  text-decoration: underline;
 }
