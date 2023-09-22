@@ -1,5 +1,5 @@
-function formatDate(timestamp) {
-  let date = new Date(timestamp);
+function formatDate() {
+  let date = new Date();
 
   let hours = date.getHours();
   if (hours < 10) {
@@ -19,8 +19,26 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let month = months[date.getMonth()];
+  let todaysDate = date.getDate();
 
-  return `${date}${day}${hours}:${minutes}`;
+  let year = date.getFullYear();
+
+  return `${day} ${todaysDate} ${month} ${hours}:${minutes} ${year}`;
 }
 
 function displayTemperature(response) {
@@ -56,6 +74,17 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
+function searchLocation(postion) {
+  let apiKey = "4t804o3f400bde415f63abf53543fcd3";
+  let latitude = postion.coords.latitude;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${latitude}&lon=${postion.coords.longitude}${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function currentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
@@ -76,6 +105,9 @@ let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let currentButton = document.querySelector("#current-location-button");
+currentButton.addEventListener("click", currentLocation);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
