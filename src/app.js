@@ -40,6 +40,35 @@ function formatDate() {
 
   return `${day} ${todaysDate} ${month} ${hours}:${minutes} ${year}`;
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thursday", "Friday", "Saturday", "Sunday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+              <strong class="weather-forecast-days"> ${day} </strong> <br />
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/2408/2408610.png"
+                alt="moon"
+                id="icon"
+                class="float-left"
+                width="30px"
+              />
+              <br />
+              <span class="weather-forecast-temperature-max">21°c</span>
+              <br />
+              <span class="weather-forecast-temperature-min">8°c</span>
+              <br />
+              <div class="forecast-description">sunny</div>
+            </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
@@ -50,7 +79,7 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
-  celsiusTemperature = response.data.temperature.current;
+  celsiusTemperature = temperatureElement.innerHTML;
 
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   cityElement.innerHTML = response.data.city;
@@ -115,3 +144,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 search("Johannesburg");
+displayForecast();
