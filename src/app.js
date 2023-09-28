@@ -1,5 +1,5 @@
-function formatDate() {
-  let date = new Date();
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
 
   let hours = date.getHours();
   if (hours < 10) {
@@ -40,43 +40,69 @@ function formatDate() {
 
   return `${day} ${todaysDate} ${month} ${hours}:${minutes} ${year}`;
 }
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Thursday", "Friday", "Saturday", "Sunday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
-              <strong class="weather-forecast-days"> ${day} </strong> <br />
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+              <strong class="weather-forecast-days">${formatDay(
+                forecastDay.time
+              )} </strong> <br />
               <img
-                src="https://cdn-icons-png.flaticon.com/512/2408/2408610.png"
-                alt="moon"
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                  forecastDay.condition.icon
+                }.png"
+                alt="icon"
                 id="icon"
                 class="float-left"
                 width="30px"
               />
               <br />
-              <span class="weather-forecast-temperature-max">21°c</span>
+              <span class="weather-forecast-temperature-max">${Math.round(
+                forecastDay.temperature.maximum
+              )}°c</span>
               <br />
-              <span class="weather-forecast-temperature-min">8°c</span>
+              <span class="weather-forecast-temperature-min">${Math.round(
+                forecastDay.temperature.minimum
+              )}°c</span>
               <br />
               <div class="forecast-description">sunny</div>
             </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "4t804o3f400bde415f63abf53543fcd3";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric
 `;
-
   axios.get(apiUrl).then(displayForecast);
 }
 
