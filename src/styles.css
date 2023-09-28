@@ -20,11 +20,7 @@ body {
 .weather-app-wrapper {
   margin: 10px auto;
 }
-.current-location-button {
-  color: #3f1d38;
-  cursor: pointer;
-  border-radius: 20px;
-}
+
 h1 {
   color: #3f1d38;
   font-size: 50px;
