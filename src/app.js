@@ -77,7 +77,7 @@ function displayForecast(response) {
                 src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
                   forecastDay.condition.icon
                 }.png"
-                alt="icon"
+                alt=""
                 id="icon"
                 class="float-left"
                 width="30px"
@@ -91,7 +91,7 @@ function displayForecast(response) {
                 forecastDay.temperature.minimum
               )}°c</span>
               <br />
-              <div class="forecast-description">sunny</div>
+              
             </div>`;
     }
   });
