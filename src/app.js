@@ -64,7 +64,6 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
       forecastHTML =
@@ -80,7 +79,7 @@ function displayForecast(response) {
                 alt=""
                 id="icon"
                 class="float-left"
-                width="30px"
+                width="46px"
               />
               <br />
               <span class="weather-forecast-temperature-max">${Math.round(
@@ -91,14 +90,14 @@ function displayForecast(response) {
                 forecastDay.temperature.minimum
               )}°c</span>
               <br />
-              
-            </div>`;
+              </div>`;
     }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+
 function getForecast(coordinates) {
   let apiKey = "4t804o3f400bde415f63abf53543fcd3";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric
@@ -107,9 +106,7 @@ function getForecast(coordinates) {
 }
 
 function displayTemperature(response) {
-  console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
-
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
@@ -117,7 +114,7 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
-  let celsiusTemperature = response.data.temperature.current;
+  celsiusTemperature = response.data.temperature.current;
 
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
   cityElement.innerHTML = response.data.city;
@@ -133,16 +130,19 @@ function displayTemperature(response) {
 
   getForecast(response.data.coordinates);
 }
+
 function search(city) {
   let apiKey = "4t804o3f400bde415f63abf53543fcd3";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
+
 function handleSubmit(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
+
 function searchLocation(postion) {
   let apiKey = "4t804o3f400bde415f63abf53543fcd3";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${position.coordinates.latitude}&lon=${postion.coordinates.longitude}${city}&key=${apiKey}&units=metric`;
@@ -185,4 +185,3 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 search("Johannesburg");
-displayForecast();

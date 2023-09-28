@@ -1,11 +1,12 @@
 body {
-  background-image: url("https://images.unsplash.com/photo-1490735891913-40897cdaafd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
+  background-image: url("https://wallpaperbat.com/img/119889-pink-beach-wallpaper-top-free-pink-beach-background.jpg");
 }
 .form-container {
   display: flex;
   justify-content: center;
   min-height: 50px;
   align-content: center;
+  padding-bottom: 20px;
 }
 .form {
   width: 40%;
@@ -13,11 +14,16 @@ body {
 
 .container {
   max-width: 800px;
-  margin-top: 10px auto;
+  margin: 50px auto;
   padding-right: 90px;
 }
 .weather-app-wrapper {
   margin: 10px auto;
+}
+.current-location-button {
+  color: #3f1d38;
+  cursor: pointer;
+  border-radius: 20px;
 }
 h1 {
   color: #3f1d38;
@@ -26,7 +32,7 @@ h1 {
   font-family: "sofia";
 }
 h2 {
-  color: #e5b8f4;
+  color: #7858a6;
 
   padding-top: 10px;
   margin-right: 90px;
@@ -35,7 +41,7 @@ h2 {
   text-align: center;
 }
 h3 {
-  color: #e5b8f4;
+  color: #7858a6;
   font-size: 25px;
   font-family: "monospace";
   margin-left: 90px;
@@ -53,7 +59,7 @@ ul {
 
 li {
   text-align: center;
-  color: #e5b8f4;
+  color: #3f1d38;
   font-size: 14px;
   font-weight: 100;
   height: 19px;
