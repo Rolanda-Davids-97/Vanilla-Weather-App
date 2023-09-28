@@ -13,7 +13,7 @@ function formatDate() {
     "Sunday",
     "Monday",
     "Tuesday",
-    "Wednsday",
+    "Wednesday",
     "Thursday",
     "Friday",
     "Saturday",
@@ -40,7 +40,9 @@ function formatDate() {
 
   return `${day} ${todaysDate} ${month} ${hours}:${minutes} ${year}`;
 }
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -69,9 +71,18 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "4t804o3f400bde415f63abf53543fcd3";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric
+`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
+
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
@@ -79,9 +90,9 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
-  celsiusTemperature = temperatureElement.innerHTML;
+  let celsiusTemperature = response.data.temperature.current;
 
-  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
   cityElement.innerHTML = response.data.city;
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = Math.round(response.data.temperature.humidity);
@@ -92,6 +103,8 @@ function displayTemperature(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   iconElement.setAttribute("alt", response.data.condition.description);
+
+  getForecast(response.data.coordinates);
 }
 function search(city) {
   let apiKey = "4t804o3f400bde415f63abf53543fcd3";
