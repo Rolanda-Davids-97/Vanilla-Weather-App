@@ -107,6 +107,7 @@ function getForecast(coordinates) {
 }
 
 function displayTemperature(response) {
+  console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
 
   let cityElement = document.querySelector("#city");
@@ -144,13 +145,13 @@ function handleSubmit(event) {
 }
 function searchLocation(postion) {
   let apiKey = "4t804o3f400bde415f63abf53543fcd3";
-
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${position.coordinates.latitude}&lon=${postion.coorinateds.longitude}${city}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${position.coordinates.latitude}&lon=${postion.coordinates.longitude}${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
 
 function currentLocation(event) {
   event.preventDefault();
+
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
@@ -169,6 +170,7 @@ function displayCelsiusTemperature(event) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
+
 let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
